@@ -220,6 +220,14 @@ class AsyncBroker(ABC):
 
         await self.result_backend.shutdown()
 
+    async def healthcheck(self) -> bool:
+        """
+        Check if broker is healthy.
+
+        :return: True if broker is healthy, False otherwise.
+        """
+        return True
+
     @abstractmethod
     async def kick(
         self,
